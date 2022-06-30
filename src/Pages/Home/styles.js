@@ -34,7 +34,7 @@ export const Container = styled.div`
         border-width: 1px;
         font-size: 16px;
         color: rgb(134, 41, 36);
-        font-family: inherit;
+        font-family: "Roboto", sans-serif;
         font-weight: 600;
         letter-spacing: 1px;
       }

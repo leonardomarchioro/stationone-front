@@ -1,6 +1,7 @@
 import Logo from "../../assets/logo.jpg"
 
 import Button from "../../components/Button"
+import { Link } from "react-router-dom"
 
 import {MdOutlineRestaurantMenu} from "react-icons/md"
 
@@ -13,11 +14,17 @@ const Home = () => {
                 <img src={Logo} alt="Logo"/>
             </div>
             <div className="buttons-container">
-                <Button className="singup-button">
-                    <MdOutlineRestaurantMenu size={25}/>
-                    Sing Up
-                </Button>
-                <Button>Log In</Button>
+                <Link to={"/signup"}>
+                    <Button className="singup-button">
+                        <MdOutlineRestaurantMenu size={25}/>
+                        Sing Up
+                    </Button>
+                </Link>
+                <Link to={"/singin"}>
+                    <Button>
+                        Log In
+                    </Button>
+                </Link>
             </div>
         </Container>
     )
