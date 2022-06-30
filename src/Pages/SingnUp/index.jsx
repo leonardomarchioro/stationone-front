@@ -1,38 +1,41 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { Container } from "./style";
 
-import {VscCircleFilled} from "react-icons/vsc"
-import Button from "../../components/Button"
-import InputPassword from "../../components/InpuPassword"
-import Input from "../../components/Input"
+import { motion } from "framer-motion";
+import { pageSignupAnimation } from "../../utils/animations";
 
-import { Container } from "./style"
+import Button from "../../components/Button";
+import Form from "../../components/FormEmailPassword";
+import HeaderTitle from "../../components/HeaderTitle";
+import ModalExtraInfos from "../../components/ModalExtraInfos";
+
+import { useState } from "react";
 
 const SignUp = () => {
-    return (
-        <Container>
-            <div className="top-container">
-                <header>
-                    {[1,2,3].map(()=><VscCircleFilled color={"#F4A15D"}/>)}
-                    <h1>Signup</h1>
-                    {[1,2,3].map(()=><VscCircleFilled color={"#F4A15D"}/> )}
-                </header>
-                <main>
-                    <form>
-                        <Input label="Email" type="email" placeholder="Enter email..."/>
-                        <InputPassword label="Password" placeholder="Enter password..."/>
-                        <Button type="submit">SIGNUP</Button>
-                    </form>
-                </main>
-            </div>
-            <footer>
-                <Link to="/signin">
-                    <Button>
-                        ALREADY HAVE AN ACCOUNT?
-                    </Button>
-                </Link>
-            </footer>
-        </Container>
-    )
-}
+  const [modal, setModal] = useState(false);
 
-export default SignUp
+  return (
+    <motion.div
+      initial={"inicio"}
+      animate={"animacao"}
+      variants={pageSignupAnimation}
+    >
+      {modal && <ModalExtraInfos setModal={setModal} />}
+      <Container>
+        <div className="top-container">
+          <HeaderTitle text="SignUp" />
+          <main>
+            <Form setModal={setModal} textButton={"SIGNUP"} />
+          </main>
+        </div>
+        <footer>
+          <Link to="/signin">
+            <Button>ALREADY HAVE AN ACCOUNT?</Button>
+          </Link>
+        </footer>
+      </Container>
+    </motion.div>
+  );
+};
+
+export default SignUp;

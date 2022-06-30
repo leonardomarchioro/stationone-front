@@ -8,6 +8,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  background-color: #fff;
 
   .top-container {
     display: flex;
@@ -23,9 +24,9 @@ export const Container = styled.div`
       gap: 2px;
 
       > h1 {
-        margin: 2px;
+        margin: 0.125rem;
         font-family: "Roboto", sans-serif;
-        font-size: 24px;
+        font-size: 1.5rem;
         font-weight: 700;
         color: rgb(0, 0, 0);
         text-align: center;
@@ -74,6 +75,10 @@ export const Container = styled.div`
         height: 36px;
         width: 100%;
       }
+    }
+
+    .none-svg > form > div > svg {
+      display: none;
     }
   }
 

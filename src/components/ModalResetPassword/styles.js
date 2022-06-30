@@ -10,7 +10,7 @@ export const ContainerModal = styled.section`
   align-items: center;
   background-color: rgba(0, 0, 0, 0.7);
   justify-content: center;
-  z-index: 1;
+  z-index: 9999999;
 `;
 
 export const Modal = styled.div`

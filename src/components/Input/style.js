@@ -17,7 +17,17 @@ export const Container = styled.div`
     height: 40px;
     font-family: "Roboto", sans-serif;
     border-radius: 4px;
-    border: 1px rgb(221, 221, 221) solid;
+    border: 1px solid;
+    border-color: ${(props) =>
+      props.error ? "#ba0303" : "rgb(221, 221, 221)"};
     padding: 5px 8px;
+  }
+  > div {
+    height: 10px;
+
+    > span {
+      font-size: 12px;
+      color: #ba0303;
+    }
   }
 `;

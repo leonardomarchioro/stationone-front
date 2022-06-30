@@ -20,7 +20,7 @@ const Home = () => {
                         Sing Up
                     </Button>
                 </Link>
-                <Link to={"/singin"}>
+                <Link to={"/signin"}>
                     <Button>
                         Log In
                     </Button>
