@@ -32,6 +32,13 @@ export const Container = styled.div`
       }
     }
 
+    .none-svg > form > div > svg {
+      display: none;
+    }
+    .none-svg > form > div {
+      z-index: -2;
+    }
+
     > main {
       width: 90%;
       height: 60%;

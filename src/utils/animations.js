@@ -57,3 +57,21 @@ export const pageSignupAnimation = {
     },
   },
 };
+
+export const registerModalAnimation = {
+  inicio: {
+    x: "100%",
+  },
+  animacao: {
+    x: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+  fim: {
+    x: "100%",
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
