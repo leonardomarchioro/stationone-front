@@ -4,6 +4,7 @@ import SignIn from "../Pages/SingIn";
 import Dashboard from "../Pages/Dashboard";
 
 import { Route, Switch } from "react-router-dom";
+import Payment from "../Pages/Payment";
 
 const Routes = () => {
   return (
@@ -12,6 +13,7 @@ const Routes = () => {
       <Route exact path="/signup" component={SignUp} />
       <Route exact path="/signin" component={SignIn} />
       <Route exact path="/dashboard" component={Dashboard} />
+      <Route exact path="/payment" component={Payment} />
     </Switch>
   );
 };

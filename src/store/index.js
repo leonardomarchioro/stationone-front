@@ -6,10 +6,12 @@ import {
 import thunk from "redux-thunk";
 import registerReducer from "./modules/register/reducer";
 import loginReducer from "./modules/login/reducer";
+import paymentReducer from "./modules/payment/reducer";
 
 const reducers = combineReducers({
   registerUser: registerReducer,
   loginUser: loginReducer,
+  payment: paymentReducer,
 });
 
 const store = createStore(reducers, applyMiddleware(thunk));
