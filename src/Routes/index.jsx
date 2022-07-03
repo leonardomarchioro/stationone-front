@@ -2,6 +2,7 @@ import Home from "../Pages/Home";
 import SignUp from "../Pages/SingnUp";
 import SignIn from "../Pages/SingIn";
 import Dashboard from "../Pages/Dashboard";
+import SellerPage from "../Pages/SellerPage";
 
 import { Route, Switch } from "react-router-dom";
 import Payment from "../Pages/Payment";
@@ -14,6 +15,7 @@ const Routes = () => {
       <Route exact path="/signin" component={SignIn} />
       <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/payment" component={Payment} />
+      <Route exact path="/seller" component={SellerPage} />
     </Switch>
   );
 };

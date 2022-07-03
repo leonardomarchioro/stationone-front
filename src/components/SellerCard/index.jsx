@@ -1,9 +1,17 @@
 import { IoLocationSharp } from "react-icons/io5";
 import Button from "../Button";
-
+import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import sellerThunk from "../../store/modules/seller/thunk.js";
 import { Container } from "./styles";
 
-const SellerCard = ({ product, showInfos }) => {
+const SellerCard = ({ product }) => {
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const callSellerPage = () => {
+    dispatch(sellerThunk(product, history));
+  };
+
   return (
     <>
       <Container>
@@ -18,7 +26,7 @@ const SellerCard = ({ product, showInfos }) => {
           </div>
           <p>{product.description}</p>
         </div>
-        <Button onClick={() => showInfos(product.id)}>SEE PRODUCTS</Button>
+        <Button onClick={callSellerPage}>SEE PRODUCTS</Button>
       </Container>
     </>
   );

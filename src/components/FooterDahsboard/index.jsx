@@ -7,8 +7,8 @@ import { BiDetail } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import { Container } from "./style";
 
-const FooterDash = ({ handlePage }) => {
-  const [page, setPage] = useState("Food");
+const FooterDash = ({ handlePage, pageSelect }) => {
+  const [page, setPage] = useState(pageSelect);
 
   return (
     <Container>

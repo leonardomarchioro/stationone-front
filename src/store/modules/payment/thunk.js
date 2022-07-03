@@ -9,7 +9,6 @@ import {
 const paymentThunk = (product, status, history) => (dispatch) => {
   if (product) {
     if (status === "initial") {
-      console.log(product);
       dispatch(initialOrder(product));
       history.push("/payment");
     } else if (status === "set_time") {

@@ -1,0 +1,2 @@
+export const SELECT_SELLER = "SELECT_SELLER";
+export const CLEAR_SELLER = "CLEAR_SELLER";

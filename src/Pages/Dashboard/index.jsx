@@ -1,6 +1,9 @@
 import { Container } from "./styles";
 
 import FoodPage from "../../components/FoodPage";
+import OrderPage from "../../components/OrderPage";
+import ProfilePage from "../../components/ProfilePage";
+
 import { useState } from "react";
 
 const Dashboard = () => {
@@ -13,8 +16,8 @@ const Dashboard = () => {
   return (
     <Container>
       {page === "Food" && <FoodPage handlePage={handlePage} />}
-      {page === "Orders" && <div>ORDERS</div>}
-      {page === "Profile" && <div>PROFILE</div>}
+      {page === "Orders" && <OrderPage handlePage={handlePage} />}
+      {page === "Profile" && <ProfilePage handlePage={handlePage} />}
     </Container>
   );
 };
