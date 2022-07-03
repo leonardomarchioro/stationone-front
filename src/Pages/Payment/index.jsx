@@ -31,8 +31,10 @@ const Payment = () => {
           callSellerPage={callSellerPage}
         />
       )}
-      {page === "Order" && <SelectOrderPage handlePage={handlePage} />}
-      {page === "Pay" && <PayPage handlePage={handlePage} />}
+      {page === "Order" && (
+        <SelectOrderPage handlePage={handlePage} payment={payment} />
+      )}
+      {page === "Pay" && <PayPage handlePage={handlePage} payment={payment} />}
     </>
   );
 };

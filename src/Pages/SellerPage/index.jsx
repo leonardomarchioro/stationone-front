@@ -12,6 +12,10 @@ const SellerPage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { seller } = useSelector((state) => state);
+  console.log(seller);
+  if (seller === {}) {
+    history.push("/dashboard");
+  }
 
   const buyProduct = () => {
     dispatch(paymentThunk(seller, "initial", history));

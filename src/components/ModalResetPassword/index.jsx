@@ -11,7 +11,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { backgroundAnimation, modalAnimation } from "../../utils/animations";
 
-const ModalResetPassword = ({ modal, closeBackground }) => {
+const ModalResetPassword = ({ closeBackground }) => {
   const [animate, setAnimate] = useState(true);
 
   const closeAnimate = useCallback(() => {

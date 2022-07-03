@@ -30,9 +30,7 @@ const SingIn = () => {
       variants={pageSigninAnimation}
     >
       <AnimatePresence exitBeforeEnter>
-        {modal && (
-          <ModalResetPassword modal={modal} closeBackground={closeBackground} />
-        )}
+        {modal && <ModalResetPassword closeBackground={closeBackground} />}
       </AnimatePresence>
       <Container>
         <div className="top-container">

@@ -6,6 +6,9 @@ import { useForm } from "react-hook-form";
 
 import Input from "../../components/Input";
 import Button from "../../components/Button";
+import OrderProgress from "../OrderProgress";
+
+import { Container, Header, Main, Footer } from "./styles";
 
 const SetPickUpTimePage = ({ handlePage, payment, callSellerPage }) => {
   const schema = yup.object().shape({
@@ -27,8 +30,8 @@ const SetPickUpTimePage = ({ handlePage, payment, callSellerPage }) => {
 
   return (
     <>
-      <div>
-        <header>
+      <Container>
+        <Header>
           <div>
             <IoMdArrowRoundBack
               size={30}
@@ -36,15 +39,16 @@ const SetPickUpTimePage = ({ handlePage, payment, callSellerPage }) => {
             />
           </div>
           <h1>Set Pickup Time</h1>
-        </header>
-        <main>
+        </Header>
+        <OrderProgress progress={1} />
+        <Main>
           <div>
             <span>Pick Up Location</span>
             <p>{payment.location}</p>
           </div>
           <div>
             <span>{payment.name} Hours</span>
-            <h3>Daily:</h3>
+            <p>Daily:</p>
           </div>
           <Input
             type="date"
@@ -53,11 +57,11 @@ const SetPickUpTimePage = ({ handlePage, payment, callSellerPage }) => {
             name={"date"}
             error={errors.date?.message}
           />
-        </main>
-        <footer>
+        </Main>
+        <Footer>
           <Button onClick={handleSubmit(submitDate)}>Set Pickup Time</Button>
-        </footer>
-      </div>
+        </Footer>
+      </Container>
     </>
   );
 };
