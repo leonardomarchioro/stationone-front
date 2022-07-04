@@ -6,7 +6,9 @@ import {
   CANCEL_ORDER,
 } from "./actionsType";
 
-const paymentReducer = (state = {}, action) => {
+const payment = JSON.parse(localStorage.getItem("@Payment:Data")) || {};
+
+const paymentReducer = (state = payment, action) => {
   switch (action.type) {
     case INITIAL:
       state = { ...action.product };

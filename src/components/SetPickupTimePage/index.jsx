@@ -24,7 +24,6 @@ const SetPickUpTimePage = ({ handlePage, payment, callSellerPage }) => {
   });
 
   const submitDate = (data) => {
-    console.log(data);
     handlePage("Order");
   };
 

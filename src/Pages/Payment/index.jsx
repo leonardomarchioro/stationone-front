@@ -7,16 +7,24 @@ import SetPickUpTimePage from "../../components/SetPickupTimePage";
 import sellerThunk from "../../store/modules/seller/thunk";
 
 const Payment = () => {
-  const { payment } = useSelector((state) => state);
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  let { payment } = useSelector((state) => state);
+
+  if (!Object.keys(payment).length) {
+    payment = JSON.parse(localStorage.getItem("@Payment:Data")) || null;
+
+    if (!payment) {
+      history.push("/seller");
+    }
+  }
 
   const [page, setPage] = useState("Time");
 
   const handlePage = (selectPage) => {
     setPage(selectPage);
   };
-
-  const history = useHistory();
-  const dispatch = useDispatch();
 
   const callSellerPage = (data) => {
     dispatch(sellerThunk(data, history));

@@ -1,14 +1,62 @@
 import { IoMdArrowRoundBack } from "react-icons/io";
-import { MdShoppingCart, MdOutlineAddShoppingCart } from "react-icons/md";
+import { BsCartDash, BsCartPlus } from "react-icons/bs";
+import { MdShoppingCart } from "react-icons/md";
+
 import Button from "../Button";
 import OrderProgress from "../OrderProgress";
 
-import { Header, Container, Main, Footer } from "./styles";
-import { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { useCallback, useState } from "react";
+import { useDispatch } from "react-redux";
 
-const SelectOrderPage = ({ handlePage, payment }) => {
-  const [quantity, setQuantity] = useState(0);
-  console.log(payment.delivery);
+import paymentThunk from "../../store/modules/payment/thunk";
+
+import { Header, Container, Main, Footer } from "./styles";
+
+const SelectOrderPage = ({ handlePage }) => {
+  const [, updateState] = useState();
+  const forceUpdate = useCallback(() => updateState({}), []);
+
+  const history = useHistory();
+
+  const payment = JSON.parse(localStorage.getItem("@Payment:Data")) || null;
+
+  if (!payment) {
+    history.push("/seller");
+  }
+
+  const dispatch = useDispatch();
+
+  const [prodcuts, setProdcuts] = useState(payment);
+
+  const [quantity, setQuantity] = useState(
+    prodcuts.reduce((acc, cur) => (acc += cur.quantity), 0) || 0
+  );
+
+  const increment = (index) => {
+    if (prodcuts[index].quantity) {
+      prodcuts[index].quantity += 1;
+    } else {
+      prodcuts[index].quantity = 1;
+    }
+    setQuantity(quantity + 1);
+    setProdcuts(prodcuts);
+    forceUpdate();
+  };
+
+  const decrement = (index) => {
+    prodcuts[index].quantity -= 1;
+    setQuantity(quantity - 1);
+    setProdcuts(prodcuts);
+    forceUpdate();
+  };
+
+  const payNow = () => {
+    handlePage("Pay");
+
+    dispatch(paymentThunk(prodcuts, "set_quantity"));
+  };
+
   return (
     <Container>
       <Header>
@@ -21,26 +69,29 @@ const SelectOrderPage = ({ handlePage, payment }) => {
       <Main>
         <h1>Add Items to Your Order</h1>
         <ul>
-          {payment.delivery((item) => {
+          {prodcuts.map((item, index) => {
             return (
               <li key={item.id}>
-                <div>
+                <div className="infos">
                   <h2>{item.name}</h2>
                   <span>${item.price}</span>
                   <span>{item.description}</span>
                 </div>
-                <MdOutlineAddShoppingCart
-                  onClick={() => setQuantity(quantity + 1)}
-                />
-                {quantity && <span>{quantity}</span>}
+                <div className="add">
+                  {item.quantity > 0 && (
+                    <BsCartDash onClick={() => decrement(index)} />
+                  )}
+                  <span>{item.quantity || 0}</span>
+                  <BsCartPlus onClick={() => increment(index)} />
+                </div>
               </li>
             );
           })}
         </ul>
       </Main>
       <Footer>
-        <Button onClick={() => handlePage("Pay")}>
-          <MdShoppingCart /> Checkout - ({2})
+        <Button onClick={payNow}>
+          <MdShoppingCart /> Checkout - ({quantity})
         </Button>
       </Footer>
     </Container>

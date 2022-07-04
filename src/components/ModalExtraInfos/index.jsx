@@ -43,8 +43,6 @@ const ModalExtraInfos = ({ setModal, closeBackground }) => {
   const handleRegister = (data) => {
     setModal(false);
     dispatch(registerThunk({ ...registerUser, ...data }, "complete", history));
-
-    console.log("Enviado para o thunk 'complete register'");
   };
 
   const [animate, setAnimate] = useState(true);

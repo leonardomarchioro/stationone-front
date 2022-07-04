@@ -18,12 +18,10 @@ const Form = ({ setModal = false, textButton }) => {
   const sendDataRegister = (data) => {
     setModal(true);
     dispatch(registerThunk(data, "first"));
-    console.log(textButton);
   };
 
   const sendDataLogin = (data) => {
     dispatch(loginThunk(data, history));
-    console.log(textButton);
   };
 
   const schema = yup.object().shape({

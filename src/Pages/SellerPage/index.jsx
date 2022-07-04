@@ -11,16 +11,21 @@ import { useHistory } from "react-router-dom";
 const SellerPage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const { seller } = useSelector((state) => state);
-  console.log(seller);
-  if (seller === {}) {
-    history.push("/dashboard");
+
+  let { seller } = useSelector((state) => state);
+
+  if (!Object.keys(seller).length) {
+    seller = JSON.parse(localStorage.getItem("@Seller:Data")) || null;
+
+    if (!seller) {
+      history.push("/dashboard");
+    }
   }
 
   const buyProduct = () => {
     dispatch(paymentThunk(seller, "initial", history));
   };
-  console.log(seller);
+
   return (
     <Container>
       <Header>

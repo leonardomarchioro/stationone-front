@@ -10,13 +10,17 @@ const paymentThunk = (product, status, history) => (dispatch) => {
   if (product) {
     if (status === "initial") {
       dispatch(initialOrder(product));
+      localStorage.setItem("@Payment:Data", JSON.stringify(product.delivery));
       history.push("/payment");
     } else if (status === "set_time") {
       dispatch(setTimeOrder(product));
-      console.log("set_time");
+      console.log(product);
     } else if (status === "set_quantity") {
+      const dataProducts = product.filter((item) => item.quantity);
+      localStorage.setItem("@Payment:Data", JSON.stringify(product));
+      localStorage.setItem("@Cart:Data", JSON.stringify(dataProducts));
       dispatch(setQuantity(product));
-      console.log("set_quantity");
+      console.log(product);
     } else if (status === "confirm") {
       console.log("Confirm");
       dispatch(confirmOrder(product));

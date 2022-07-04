@@ -5,6 +5,7 @@ const sellerThunk =
   (dispatch) => {
     if (dataSeller) {
       dispatch(selectSeller(dataSeller));
+      localStorage.setItem("@Seller:Data", JSON.stringify(dataSeller));
       history.push("/seller");
     } else {
       dispatch(clearSeller());

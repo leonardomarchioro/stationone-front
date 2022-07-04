@@ -7,7 +7,6 @@ export const Container = styled.div`
   justify-content: space-between;
   width: 80%;
   height: auto;
-  max-width: 400px;
   background-color: rgb(255, 255, 255);
   border-radius: 12.5px;
   border-color: rgb(245, 245, 245);
@@ -36,6 +35,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 
     > div {
       display: flex;

@@ -58,18 +58,13 @@ export const Container = styled.section`
   }
 
   .three {
-    span:nth-child(1) {
+    span {
       background-color: rgb(244, 161, 93);
     }
-    div:nth-child(2) {
+    div {
       background-color: rgb(244, 161, 93);
     }
-    span:nth-child(3) {
-      background-color: rgb(244, 161, 93);
-    }
-    div:nth-child(4) {
-      background-color: rgb(244, 161, 93);
-    }
+
     span:nth-child(5) {
       background-color: rgb(255, 255, 255);
       border: rgb(244, 161, 93) 3px solid;
