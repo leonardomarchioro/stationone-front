@@ -22,12 +22,16 @@ const paymentThunk = (product, status, history) => (dispatch) => {
       dispatch(setQuantity(product));
       console.log(product);
     } else if (status === "confirm") {
-      console.log("Confirm");
-      dispatch(confirmOrder(product));
-      history.push("/dashboard");
+      console.log(product);
+
+      // dispatch(confirmOrder(product));
+      // history.push("/dashboard");
     }
   } else {
-    dispatch(cancelOrder());
+    console.log("Cancel order");
+    // dispatch(cancelOrder());
+    // localStorage.removeItem("@Cart:Data");
+    // history.push("/dashboard");
   }
 };
 

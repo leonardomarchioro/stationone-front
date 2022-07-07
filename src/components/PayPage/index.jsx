@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import paymentThunk from "../../store/modules/payment/thunk";
 
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -15,6 +18,7 @@ import { Header, Main } from "./styles";
 
 const PayPage = ({ handlePage }) => {
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const [prodcuts, setProducts] = useState(
     JSON.parse(localStorage.getItem("@Cart:Data")) || null
@@ -56,11 +60,11 @@ const PayPage = ({ handlePage }) => {
   });
 
   const cancelOrder = () => {
-    console.log("CANCEL ORDER");
+    dispatch(paymentThunk(false, false, history));
   };
 
   const handleLogin = (data) => {
-    console.log(data);
+    dispatch(paymentThunk({ prodcuts, ...data }, "confirm", history));
   };
 
   return (
@@ -76,7 +80,7 @@ const PayPage = ({ handlePage }) => {
         <Main>
           <ul>
             {prodcuts.map((item) => (
-              <li>
+              <li key={item.id}>
                 <div>
                   <h2>
                     {item.quantity} x {item.name}
@@ -91,7 +95,7 @@ const PayPage = ({ handlePage }) => {
               </li>
             ))}
           </ul>
-          <div>
+          <div className="infos-payment">
             <Input
               labelText="Add Notes"
               register={register}
@@ -99,27 +103,25 @@ const PayPage = ({ handlePage }) => {
               error={errors.note?.message}
               placeholder="Add additional notes..."
             />
-            <div>
-              <div className="priceInfos">
-                <h2>Price</h2>
+            <div className="priceInfos">
+              <h2>Price</h2>
+              <div>
                 <div>
-                  <div>
-                    <span>Total Before Tax</span>
-                    <span>Tax Amount</span>
-                  </div>
-                  <div>
-                    <h3>${total.toFixed(2)}</h3>
-                    <h3>$ 3,00</h3>
-                  </div>
+                  <span>Total Before Tax</span>
+                  <span>Tax Amount</span>
+                </div>
+                <div>
+                  <h3>${total.toFixed(2)}</h3>
+                  <h3>$ 3,00</h3>
                 </div>
               </div>
             </div>
-            <div>
+            <div className="subtotal">
               <span>Total</span>
               <h2>${(3 + total).toFixed(2)}</h2>
             </div>
           </div>
-          <div>
+          <div className="credit-card">
             <h2>Payment</h2>
             <Input
               labelText="Credit or debit card"
@@ -129,8 +131,18 @@ const PayPage = ({ handlePage }) => {
               placeholder="Card Number..."
             />
           </div>
-          <Button onClick={handleSubmit(handleLogin)}>PAY NOW</Button>
-          <Button onClick={cancelOrder}>CANCEL ORDER</Button>
+          <div className="buttons">
+            <Button
+              className="payment-button"
+              onClick={handleSubmit(handleLogin)}
+            >
+              PAY NOW
+            </Button>
+            <Button className="cancel-button" onClick={cancelOrder}>
+              <FaTrash size={20} />
+              CANCEL ORDER
+            </Button>
+          </div>
         </Main>
       </div>
     </>

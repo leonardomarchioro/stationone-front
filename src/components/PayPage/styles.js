@@ -98,4 +98,138 @@ export const Main = styled.main`
       }
     }
   }
+
+  > div {
+    margin-top: 20px;
+  }
+
+  .infos-payment {
+    width: 100%;
+
+    > div:nth-child(1) {
+      padding: 0 20px;
+    }
+
+    .priceInfos {
+      background-color: rgb(245, 245, 245);
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-content: space-around;
+      padding: 12px 20px;
+
+      > h2 {
+        width: 100%;
+        color: rgb(0, 0, 0);
+        font-family: "Roboto", sans-serif;
+        font-size: 20px;
+        margin-bottom: 6px;
+      }
+
+      > div {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        > div {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+
+          span {
+            color: rgb(143, 143, 143);
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+            font-size: 13px;
+          }
+
+          h3 {
+            color: rgb(0, 0, 0);
+            font-family: "Roboto", sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    .subtotal {
+      background-color: rgb(245, 245, 245);
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      align-content: space-around;
+      padding: 12px 20px;
+
+      span {
+        color: rgb(143, 143, 143);
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        font-size: 13px;
+      }
+
+      h2 {
+        color: rgb(0, 0, 0);
+        font-family: "Roboto", sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+      }
+    }
+  }
+
+  .credit-card {
+    width: 90%;
+    > h2 {
+      color: rgb(0, 0, 0);
+      font-family: "Roboto", sans-serif;
+      font-weight: 500;
+      font-size: 20px;
+    }
+  }
+
+  > .buttons {
+    width: 90%;
+    max-width: 700px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    div {
+      .cancel-button {
+        box-shadow: rgb(0 0 0 / 15%) 0px 2.4px 4px;
+        width: 100%;
+        max-width: 700px;
+        border-color: rgba(158, 158, 158, 0.23);
+        color: rgb(158, 158, 158);
+        height: 36px;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .payment-button {
+        background-color: rgb(244, 161, 93);
+        border: transparent;
+        box-shadow: rgb(0 0 0 / 15%) 0px 2.4px 4px;
+        width: 100%;
+        max-width: 700px;
+        color: rgba(0, 0, 0, 0.87);
+        height: 36px;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+    }
+  }
 `;
