@@ -1,0 +1,83 @@
+import styled from "styled-components";
+
+export const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 56px;
+`;
+
+export const Header = styled.header`
+  width: 100%;
+  height: 56px;
+  background-color: rgb(134, 41, 36);
+  box-shadow: rgb(0 0 0 / 30%) 0px 2px 4px;
+  margin-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+
+  div {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    top: 15px;
+
+    > svg {
+      color: rgb(255, 255, 255);
+      margin: 5px;
+    }
+  }
+
+  > h1 {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    position: relative;
+    bottom: 15px;
+  }
+`;
+
+export const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+
+  width: 100%;
+  > h2 {
+    width: 90%;
+    color: rgb(117, 117, 117);
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+`;
+
+export const EmptyDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  > img {
+    width: 100%;
+    max-width: 700px;
+  }
+
+  > h1 {
+    color: rgb(117, 117, 117);
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+  }
+`;

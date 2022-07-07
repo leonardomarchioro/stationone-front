@@ -202,6 +202,8 @@ export const Main = styled.main`
     justify-content: space-around;
 
     div {
+      width: 100%;
+
       .cancel-button {
         box-shadow: rgb(0 0 0 / 15%) 0px 2.4px 4px;
         width: 100%;

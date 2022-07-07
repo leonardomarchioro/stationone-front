@@ -1,9 +1,12 @@
-import { IoMdArrowRoundBack } from "react-icons/io";
+import { useDispatch } from "react-redux";
+
+import paymentThunk from "../../store/modules/payment/thunk";
 
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 
+import { IoMdArrowRoundBack } from "react-icons/io";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import OrderProgress from "../OrderProgress";
@@ -11,6 +14,8 @@ import OrderProgress from "../OrderProgress";
 import { Container, Header, Main, Footer } from "./styles";
 
 const SetPickUpTimePage = ({ handlePage, payment, callSellerPage }) => {
+  const dispatch = useDispatch();
+
   const schema = yup.object().shape({
     date: yup.date("Invalid Date"),
   });
@@ -24,6 +29,7 @@ const SetPickUpTimePage = ({ handlePage, payment, callSellerPage }) => {
   });
 
   const submitDate = (data) => {
+    dispatch(paymentThunk({ ...payment, ...data }, "set_time"));
     handlePage("Order");
   };
 

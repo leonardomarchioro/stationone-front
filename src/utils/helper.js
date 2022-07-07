@@ -19,3 +19,15 @@ export const replaceCaracters = (text) => {
 
   return replaceText;
 };
+
+export const formatDate = (date) => {
+  let dateType = new Date(date);
+  let dateFormatad =
+    dateType.getMonth() +
+    1 +
+    "/" +
+    dateType.getDate() +
+    "/" +
+    dateType.getFullYear();
+  return dateFormatad;
+};
