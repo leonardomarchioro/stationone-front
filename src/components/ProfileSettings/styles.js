@@ -50,35 +50,59 @@ export const Main = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
-
+  justify-content: center;
   width: 100%;
-  > h2 {
-    width: 90%;
-    color: rgb(117, 117, 117);
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    margin-bottom: 5px;
-  }
-`;
+  height: 100%;
+  gap: 20px;
 
-export const EmptyDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-
-  > img {
-    width: 100%;
-    max-width: 700px;
+  img {
+    width: 200px;
   }
 
-  > h1 {
-    color: rgb(117, 117, 117);
+  form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    > div {
+      width: 100%;
+      max-width: 700px;
+    }
+
+    > div > button {
+      background-color: rgb(244, 161, 93);
+      border: transparent;
+      border-radius: 300px;
+      height: 39.6px;
+      width: 100%;
+      max-width: 700px;
+      opacity: 1;
+      color: rgb(255, 255, 255);
+      font-family: "Roboto", sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+    }
+  }
+
+  svg {
+    cursor: pointer;
+  }
+
+  > div > button {
+    margin-top: 10px;
+    border: transparent;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: rgb(134, 41, 36);
     font-family: "Roboto", sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
   }
 `;

@@ -31,6 +31,7 @@ export const Header = styled.header`
     > svg {
       color: rgb(255, 255, 255);
       margin: 5px;
+      cursor: pointer;
     }
   }
 

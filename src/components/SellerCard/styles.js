@@ -47,6 +47,7 @@ export const Container = styled.div`
 
       > svg {
         width: 30px;
+        cursor: pointer;
       }
 
       > span {

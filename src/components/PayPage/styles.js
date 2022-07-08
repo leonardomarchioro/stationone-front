@@ -31,6 +31,7 @@ export const Header = styled.header`
     > svg {
       color: rgb(255, 255, 255);
       margin: 5px;
+      cursor: pointer;
     }
   }
 
@@ -95,6 +96,7 @@ export const Main = styled.main`
 
       > svg {
         color: rgb(204, 204, 204);
+        cursor: pointer;
       }
     }
   }
@@ -107,17 +109,17 @@ export const Main = styled.main`
     width: 100%;
 
     > div:nth-child(1) {
-      padding: 0 20px;
+      padding: 0 10%;
     }
 
     .priceInfos {
       background-color: rgb(245, 245, 245);
+      padding: 12px 10%;
       margin-top: 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
       align-content: space-around;
-      padding: 12px 20px;
 
       > h2 {
         width: 100%;
@@ -140,6 +142,7 @@ export const Main = styled.main`
 
           span {
             color: rgb(143, 143, 143);
+            padding: 0 5%;
             font-family: "Roboto", sans-serif;
             font-weight: 400;
             font-size: 13px;
@@ -164,7 +167,7 @@ export const Main = styled.main`
       justify-content: space-between;
       align-items: center;
       align-content: space-around;
-      padding: 12px 20px;
+      padding: 12px 10%;
 
       span {
         color: rgb(143, 143, 143);
@@ -184,6 +187,7 @@ export const Main = styled.main`
 
   .credit-card {
     width: 90%;
+    padding: 0 10%;
     > h2 {
       color: rgb(0, 0, 0);
       font-family: "Roboto", sans-serif;

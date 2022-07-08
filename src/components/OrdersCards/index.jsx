@@ -5,7 +5,7 @@ const OrdersCards = ({ orders }) => {
   console.log(orders);
 
   const subTotal = (cart) => {
-    return cart.reduce((acc, cur) => (acc += cur.price * cur.quantity), 0);
+    return cart.reduce((acc, cur) => (acc += cur.price * cur.quantity), 0) + 3;
   };
 
   return (
@@ -20,7 +20,7 @@ const OrdersCards = ({ orders }) => {
             </div>
             <Products>
               {item.cartData.map((product) => (
-                <li>
+                <li key={product.id}>
                   <span>{product.name}</span>
                   <div>
                     <span>Quantity {product.quantity}</span>

@@ -31,6 +31,7 @@ export const Header = styled.header`
     > svg {
       color: rgb(255, 255, 255);
       margin: 5px;
+      cursor: pointer;
     }
   }
 
@@ -113,6 +114,7 @@ export const Main = styled.main`
         gap: 4px;
         color: rgb(66, 66, 66);
         font-weight: 500;
+        cursor: pointer;
       }
     }
   }

@@ -23,7 +23,6 @@ const PayPage = ({ handlePage }) => {
   const [prodcuts, setProducts] = useState(
     JSON.parse(localStorage.getItem("@Cart:Data")) || null
   );
-
   const payment = JSON.parse(localStorage.getItem("@Payment:Data"));
 
   const removeProduct = (id) => {
@@ -64,7 +63,11 @@ const PayPage = ({ handlePage }) => {
   };
 
   const handleLogin = (data) => {
-    dispatch(paymentThunk({ prodcuts, ...data }, "confirm", history));
+    if (prodcuts.length > 0) {
+      dispatch(paymentThunk({ prodcuts, ...data }, "confirm", history));
+    } else {
+      console.log("Nenhum produto foi adicionado");
+    }
   };
 
   return (
