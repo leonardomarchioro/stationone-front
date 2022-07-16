@@ -15,6 +15,7 @@ import Input from "../Input";
 import Button from "../Button";
 
 import { Header, Main } from "./styles";
+import { toast } from "react-toastify";
 
 const PayPage = ({ handlePage }) => {
   const history = useHistory();
@@ -66,7 +67,7 @@ const PayPage = ({ handlePage }) => {
     if (prodcuts.length > 0) {
       dispatch(paymentThunk({ prodcuts, ...data }, "confirm", history));
     } else {
-      console.log("Nenhum produto foi adicionado");
+      toast.error("Your cart is empty");
     }
   };
 

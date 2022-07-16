@@ -25,8 +25,11 @@ const Form = ({ setModal = false, textButton }) => {
   };
 
   const schema = yup.object().shape({
-    email: yup.string().required("Campo obrigatório").email("Email inválido"),
-    password: yup.string().required("Campo obrigatório"),
+    email: yup
+      .string()
+      .required("Email is required")
+      .email("Invalid format email"),
+    password: yup.string().required("Password is required"),
   });
 
   const {

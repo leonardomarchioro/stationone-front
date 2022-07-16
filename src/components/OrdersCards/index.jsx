@@ -2,8 +2,6 @@ import { formatDate } from "../../utils/helper";
 import { Container, Orders, Products } from "./styles";
 
 const OrdersCards = ({ orders }) => {
-  console.log(orders);
-
   const subTotal = (cart) => {
     return cart.reduce((acc, cur) => (acc += cur.price * cur.quantity), 0) + 3;
   };

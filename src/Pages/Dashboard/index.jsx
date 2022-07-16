@@ -5,6 +5,7 @@ import OrderPage from "../../components/OrderPage";
 import ProfilePage from "../../components/ProfilePage";
 
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Dashboard = () => {
   const [page, setPage] = useState("Food");
@@ -12,6 +13,12 @@ const Dashboard = () => {
   const handlePage = (newPage) => {
     setPage(newPage);
   };
+
+  const dataUser = JSON.parse(localStorage.getItem("@UserRegister:Data"));
+  const history = useHistory();
+  if (!dataUser) {
+    history.push("/");
+  }
 
   return (
     <Container>

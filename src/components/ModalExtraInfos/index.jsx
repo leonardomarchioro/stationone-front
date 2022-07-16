@@ -26,8 +26,8 @@ const ModalExtraInfos = ({ setModal, closeBackground }) => {
 
   const schema = yup.object().shape({
     imageUrl: yup.string(),
-    fullName: yup.string().required("Campo obrigatório"),
-    phoneNumber: yup.string().required("Campo obrigatório"),
+    fullName: yup.string().required("Name is required!"),
+    phoneNumber: yup.string().required("Number is required!"),
   });
 
   const {

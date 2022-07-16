@@ -21,7 +21,10 @@ const ModalResetPassword = ({ closeBackground }) => {
   }, [closeBackground]);
 
   const schema = yup.object().shape({
-    email: yup.string().required("Campo obrigatório").email("Email inválido"),
+    email: yup
+      .string()
+      .required("Email is required!")
+      .email("Invalid format email"),
   });
 
   const {

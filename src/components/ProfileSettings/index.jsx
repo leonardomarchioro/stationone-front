@@ -8,25 +8,32 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import loginThunk from "../../store/modules/login/thunk";
+import registerThunk from "../../store/modules/register/thunk";
 
 import { useState } from "react";
 import { Container, Header, Main } from "./styles";
 
 const ProfileSettings = ({ setSettings }) => {
-  const [fullName, setFullName] = useState("Dude");
-  const [imageUrl, setImageUrl] = useState(
-    "https://adalo-uploads.imgix.net/1931256939a2e431f33b48b2e905f1bf724acbda6b00bb324ad0729559a9d99c.jpg?orient"
-  );
-  const [phoneNumber, setPhoneNumber] = useState("+11991234573");
-  const [email, setEmail] = useState("dude@gmail.com");
-
+  const dataUser = JSON.parse(localStorage.getItem("@UserRegister:Data"));
   const history = useHistory();
 
+  if (!dataUser) {
+    history.push("/");
+  }
+  const [fullName, setFullName] = useState(dataUser.fullName);
+  const [imageUrl] = useState(
+    "https://adalo-uploads.imgix.net/1931256939a2e431f33b48b2e905f1bf724acbda6b00bb324ad0729559a9d99c.jpg?orient"
+  );
+  const [phoneNumber, setPhoneNumber] = useState(dataUser.phoneNumber);
+  const [email, setEmail] = useState(dataUser.email);
+
   const schema = yup.object().shape({
-    fullName: yup.string(),
+    fullName: yup.string().required("Name is required!"),
     imageUrl: yup.string(),
-    phoneNumber: yup.string(),
-    email: yup.string().email("Invalid Format"),
+    phoneNumber: yup.string().required("Number is required!"),
+    email: yup.string().required("Email is required!").email("Invalid Format"),
   });
 
   const {
@@ -36,15 +43,18 @@ const ProfileSettings = ({ setSettings }) => {
   } = useForm({
     resolver: yupResolver(schema),
   });
+  const dispatch = useDispatch();
 
   const logOut = () => {
+    dispatch(loginThunk());
     history.push("/");
-    localStorage.clear();
   };
 
   const handleUpdate = (data) => {
     setSettings(false);
-    console.log(data);
+    dispatch(
+      registerThunk({ ...data, password: dataUser.password }, "update", history)
+    );
   };
   return (
     <Container>
@@ -71,7 +81,6 @@ const ProfileSettings = ({ setSettings }) => {
             name={"imageUrl"}
             error={errors.imageUrl?.message}
             value={imageUrl}
-            onChange={(event) => setImageUrl(event.target.value)}
           />
           <Input
             labelText="Phone Number"

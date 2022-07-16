@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import {
   initialOrder,
   setTimeOrder,
@@ -45,7 +46,7 @@ const paymentThunk = (product, status, history) => (dispatch) => {
         "@Orders:Data",
         JSON.stringify(orders ? [...orders, orderData] : [orderData])
       );
-
+      toast.success("Request products with success!");
       history.push("/dashboard");
     }
   } else {
